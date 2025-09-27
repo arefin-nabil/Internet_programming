@@ -1,41 +1,68 @@
 .logo {
-    width: 60px;
-    margin: 10px 0px 10px 60px;
-    border: 1px solid white;
+  width: 60px;
+  margin: 10px 0px 10px 60px;
+  border: 1px solid white;
 }
 
 .menu_item {
-    list-style: none;
-    display: inline-flex;
+  list-style: none;
+  display: inline-flex;
 
-    align-items: center  ;
-    margin-right: 50px;
-    padding: 5px;
-    gap: 30px;
-    font-size: 20px;
-    border: 1px solid white;
+  align-items: center;
+  margin-right: 50px;
+  padding: 5px;
+  gap: 30px;
+  font-size: 20px;
+  border: 1px solid white;
+}
+.mb-3 {
+  padding: 0px 20px 0px 20px;
 }
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:rgba(55, 87, 8, 0.356);
-    border: 1px solid white;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(55, 87, 8, 0.356);
+  border: 1px solid white;
 }
 
-.top{
-    display:flexbox;
-    justify-content: space-between;
+.home_img {
+  display: block;
+  margin: auto;
+  width: 160px;
 }
 
-.background{
-    background-color: rgba(144, 198, 245, 0.658);
-    height: 100vh;
-    width: 100%;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.top {
+  display: flexbox;
+  justify-content: space-between;
+}
+
+.background {
+  background-color: rgba(144, 198, 245, 0.658);
+  height: 100vh;
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conatact {
+  text-align: center;
+  margin: 20px;
+  border: 1px solid green;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgb(192, 192, 192);
+  padding: 15px;
+}
+
+.number {
+  display: inline-flex;
 }
