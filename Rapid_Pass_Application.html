@@ -147,10 +147,10 @@
                 <!-- Buttons -->
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <button type="button" class="btn-cancel">Cancel</button>
+                        <button type="button" class="btn-cancel" onclick="window.location.reload();">Cancel</button>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <button type="submit" class="btn-submit">Submit Application</button>
+                        <button type="submit" class="btn-submit" onclick="window.location.reload();">Submit Application</button>
                     </div>
                 </div>
             </form>
@@ -171,11 +171,6 @@
             studentSection.style.display = this.checked ? 'block' : 'none';
         });
         
-        // Form submission
-        document.getElementById('rapidPassForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Application submitted successfully! You will receive a confirmation SMS shortly.');
-        });
     </script>
 </body>
 </html>

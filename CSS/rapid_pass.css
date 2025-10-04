@@ -6,9 +6,6 @@
 }
 
 body {
-    background: url("Image/bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    opacity: 0.3;
     position: relative;
     min-height: 100vh;
 }
