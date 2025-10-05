@@ -1,176 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Metro Rail Rapid Pass Application</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/rapid_pass.css">
-
-</head>
-<body>
-    <div class="container" >
-        <div class="form-container" style="background: linear-gradient(135deg, #f6fffba8 0%, #defddeab 100%);">
-            <div class="header">
-                <img class="img" src="./Image/metro.png">
-                <h2> Metro Rail Rapid Pass</h2>
-                <p>Apply for your Rapid pass today</p>
-            </div>
-            
-            <form id="rapidPassForm">
-                <div class="mb-4">
-                    <label class="form-label">Full Name *</label>
-                    <input type="text" class="form-control" required placeholder="Enter your full name">
-                </div>
-                
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <label class="form-label">Phone Number *</label>
-                        <input type="tel" class="form-control" required placeholder="01XXXXXXXXX">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control" placeholder="example@email.com">
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <label class="form-label">National ID / Passport Number *</label>
-                    <input type="text" class="form-control" required placeholder="Enter your NID or Passport">
-                </div>
-                
-                <div class="mb-4">
-                    <label class="form-label">Select Pass Type *</label>
-                    <select class="form-select" required>
-                        <option value="">Choose pass duration</option>
-                        <option value="weekly">Weekly Pass - 500 BDT</option>
-                        <option value="monthly">Monthly Pass - 1,800 BDT</option>
-                        <option value="quarterly">Quarterly Pass - 5,000 BDT</option>
-                        <option value="yearly">Yearly Pass - 18,000 BDT</option>
-                    </select>
-                </div>
-                
-                <div class="mb-4">
-                    <label class="form-label">Select Your Regular Route *</label>
-                    <select class="form-select" required id="routeSelect">
-                        <option value="">Choose your route</option>
-                        <option value="uttara-motijheel">Uttara North ⇄ Motijheel</option>
-                        <option value="uttara-kamalapur">Uttara North ⇄ Kamalapur</option>
-                        <option value="agargaon-motijheel">Agargaon ⇄ Motijheel</option>
-                        <option value="farmgate-motijheel">Farmgate ⇄ Motijheel</option>
-                        <option value="kawranbazar-kamalapur">Kawran Bazar ⇄ Kamalapur</option>
-                        <option value="custom">Custom Route</option>
-                    </select>
-                    <div class="mt-2">
-                        <span class="route-badge">Uttara North</span>
-                        <span class="route-badge">Uttara Center</span>
-                        <span class="route-badge">Uttara South</span>
-                        <span class="route-badge">Pallabi</span>
-                        <span class="route-badge">Mirpur 11</span>
-                        <span class="route-badge">Mirpur 10</span>
-                        <span class="route-badge">Kazipara</span>
-                        <span class="route-badge">Shewrapara</span>
-                        <span class="route-badge">Agargaon</span>
-                        <span class="route-badge">Bijoy Sarani</span>
-                        <span class="route-badge">Farmgate</span>
-                        <span class="route-badge">Karwan Bazar</span>
-                        <span class="route-badge">Shahbagh</span>
-                        <span class="route-badge">Dhaka University</span>
-                        <span class="route-badge">Bangladesh Secretariat</span>
-                        <span class="route-badge">Motijheel</span>
-                        <span class="route-badge">Kamalapur</span>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <label class="form-label mb-0">Enable Auto-Recharge via bKash</label>
-                            <div><small class="text-muted">Automatically recharge when balance is low</small></div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="autoRecharge">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div id="bkashSection" style="display: none;">
-                    <div class="mb-4 p-3" style="background-color: #fff3e0ab; border-radius: 10px; border-left: 4px solid #ff990080;">
-                        <label class="form-label">bKash Account Number</label>
-                        <input type="tel" class="form-control" placeholder="01XXXXXXXXX">
-                        <small class="text-muted">You will receive a PIN via SMS for verification</small>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <label class="form-label mb-0">I am a Student (20% Discount)</label>
-                            <div><small class="text-muted">Valid student ID required</small></div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="studentDiscount">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div id="studentSection" style="display: none;">
-                    <div class="mb-4 p-3" style="background-color: #fff3e0ab; border-radius: 10px; border-left: 4px solid #ff990080;">
-                        <label class="form-label">Student ID Number</label>
-                        <input type="text" class="form-control" placeholder="Enter your student ID">
-                        <label class="form-label mt-3">University Name</label>
-                        <input type="text" class="form-control" placeholder="Enter your university name">
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <label class="form-label">Upload Your Photo *</label>
-                    <input type="file" class="form-control" accept="image/*" required>
-                    <small class="text-muted">Passport size photo (Max 2MB, JPG/PNG)</small>
-                </div>
-                
-                <div class="mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
-                        <label class="form-check-label" for="termsCheck">
-                            I agree to the <a href="#" style="color: var(--primary-green);">Terms & Conditions</a> and <a href="#" style="color: var(--primary-green);">Privacy Policy</a>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="info-badge mb-4">
-                    <strong>📌 Note:</strong> Your pass will be ready for collection within 3-5 working days
-                </div>
-                
-                <!-- Buttons -->
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <button type="button" class="btn-cancel" onclick="window.location.reload();">Cancel</button>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <button type="submit" class="btn-submit" onclick="window.location.reload();">Submit Application</button>
-                    </div>
-                </div>
-            </form>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/rapid_pass.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="form-container"
+        style="
+          background: linear-gradient(135deg, #f6fffba8 0%, #defddeab 100%);
+        "
+      >
+        <div class="header">
+          <img class="img" src="./Image/metro.png" />
+          <h2>Metro Rail Rapid Pass</h2>
+          <p>Apply for your Rapid pass today</p>
         </div>
+
+        <form id="rapidPassForm">
+          <div class="mb-4">
+            <label class="form-label">Full Name *</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Phone Number *</label>
+              <input
+                type="tel"
+                class="form-control"
+                required
+                placeholder="01XXXXXXXXX"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="example@email.com"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">National ID / Passport Number *</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter your NID or Passport"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Present Address</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="House, Block, Road, City"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Permanent Address</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="City / State, Postal code"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">How often do you use metro? *</label>
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="metroUsage"
+                  id="metro1"
+                  value="1-2"
+                />
+                <label class="form-check-label" for="metro1"
+                  >1-2 times a day</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="metroUsage"
+                  id="metro2"
+                  value="3-4"
+                />
+                <label class="form-check-label" for="metro2"
+                  >3-4 times a day</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="metroUsage"
+                  id="metro3"
+                  value="more"
+                />
+                <label class="form-check-label" for="metro3"
+                  >More than 4 times a day</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Select Pass Type *</label>
+            <select class="form-select" required>
+              <option value="">Choose pass duration</option>
+              <option value="weekly">Weekly Pass - 500 BDT</option>
+              <option value="monthly">Monthly Pass - 1,800 BDT</option>
+              <option value="quarterly">Quarterly Pass - 5,000 BDT</option>
+              <option value="yearly">Yearly Pass - 18,000 BDT</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Select Your Regular Route *</label>
+            <select class="form-select" required id="routeSelect">
+              <option value="">Choose your route</option>
+              <option value="uttara-motijheel">Uttara North ⇄ Motijheel</option>
+              <option value="uttara-kamalapur">Uttara North ⇄ Kamalapur</option>
+              <option value="agargaon-motijheel">Agargaon ⇄ Motijheel</option>
+              <option value="farmgate-motijheel">Farmgate ⇄ Motijheel</option>
+              <option value="kawranbazar-kamalapur">
+                Kawran Bazar ⇄ Kamalapur
+              </option>
+              <option value="custom">Custom Route</option>
+            </select>
+            <div class="mt-2">
+              <span class="route-badge">Uttara North</span>
+              <span class="route-badge">Uttara Center</span>
+              <span class="route-badge">Uttara South</span>
+              <span class="route-badge">Pallabi</span>
+              <span class="route-badge">Mirpur 11</span>
+              <span class="route-badge">Mirpur 10</span>
+              <span class="route-badge">Kazipara</span>
+              <span class="route-badge">Shewrapara</span>
+              <span class="route-badge">Agargaon</span>
+              <span class="route-badge">Bijoy Sarani</span>
+              <span class="route-badge">Farmgate</span>
+              <span class="route-badge">Karwan Bazar</span>
+              <span class="route-badge">Shahbagh</span>
+              <span class="route-badge">Dhaka University</span>
+              <span class="route-badge">Bangladesh Secretariat</span>
+              <span class="route-badge">Motijheel</span>
+              <span class="route-badge">Kamalapur</span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <label class="form-label mb-0"
+                  >Enable Auto-Recharge via bKash</label
+                >
+                <div>
+                  <small class="text-muted"
+                    >Automatically recharge when balance is low</small
+                  >
+                </div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="autoRecharge" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="bkashSection" style="display: none">
+            <div
+              class="mb-4 p-3"
+              style="
+                background-color: #fff3e0ab;
+                border-radius: 10px;
+                border-left: 4px solid #ff990080;
+              "
+            >
+              <label class="form-label">bKash Account Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="01XXXXXXXXX"
+              />
+              <small class="text-muted"
+                >You will receive a PIN via SMS for verification</small
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <label class="form-label mb-0"
+                  >I am a Student (20% Discount)</label
+                >
+                <div>
+                  <small class="text-muted">Valid student ID required</small>
+                </div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="studentDiscount" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="studentSection" style="display: none">
+            <div
+              class="mb-4 p-3"
+              style="
+                background-color: #fff3e0ab;
+                border-radius: 10px;
+                border-left: 4px solid #ff990080;
+              "
+            >
+              <label class="form-label">Student ID Number</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your student ID"
+              />
+              <label class="form-label mt-3">University Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your university name"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Upload Your Photo *</label>
+            <input type="file" class="form-control" accept="image/*" required />
+            <small class="text-muted"
+              >Passport size photo (Max 2MB, JPG/PNG)</small
+            >
+          </div>
+
+          <div class="mb-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="termsCheck"
+                required
+              />
+              <label class="form-check-label" for="termsCheck">
+                I agree to the
+                <a href="#" style="color: var(--primary-green)"
+                  >Terms & Conditions</a
+                >
+                and
+                <a href="#" style="color: var(--primary-green)"
+                  >Privacy Policy</a
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="info-badge mb-4">
+            <strong>📌 Note:</strong> Your pass will be ready for collection
+            within 3-5 working days
+          </div>
+
+          <!-- Buttons -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <button
+                type="button"
+                class="btn-cancel"
+                onclick="window.location.reload();"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="col-md-6 mb-3">
+              <button
+                type="submit"
+                class="btn-submit"
+                onclick="window.location.reload();"
+              >
+                Submit Application
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Toggle bKash section
-        document.getElementById('autoRecharge').addEventListener('change', function() {
-            const bkashSection = document.getElementById('bkashSection');
-            bkashSection.style.display = this.checked ? 'block' : 'none';
+      // Toggle bKash section
+      document
+        .getElementById("autoRecharge")
+        .addEventListener("change", function () {
+          const bkashSection = document.getElementById("bkashSection");
+          bkashSection.style.display = this.checked ? "block" : "none";
         });
-        
-        // Toggle student section
-        document.getElementById('studentDiscount').addEventListener('change', function() {
-            const studentSection = document.getElementById('studentSection');
-            studentSection.style.display = this.checked ? 'block' : 'none';
+
+      // Toggle student section
+      document
+        .getElementById("studentDiscount")
+        .addEventListener("change", function () {
+          const studentSection = document.getElementById("studentSection");
+          studentSection.style.display = this.checked ? "block" : "none";
         });
-        
     </script>
-</body>
+  </body>
 </html>
