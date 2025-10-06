@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 id="demo">Hello!</h1>
+    <input type="text" id="text_input"  />
+
+    <button onClick="testFunction();"> Click Here </button>
+
+    <script>
+        document.getElementById("text_input").value = "tyrcyr";
+
+        function testFunction() {
+            console.log("Hello World");
+            let a = 20;
+            let b = 40;
+            let c = a + b;
+            document.getElementById("text_input").value = c;
+             document.getElementById("demo").innerHTML = "SUM: "+c;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
